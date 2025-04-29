@@ -1,0 +1,10 @@
+{
+    "pages": [
+      "pages/index/index"
+    ],
+    "window": {
+      "navigationBarTitleText": "Telkomsel Prestige",
+      "backgroundTextStyle": "light"
+    }
+  }
+  

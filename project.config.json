@@ -1,0 +1,47 @@
+{
+	"projectid": "mp5vhbchef0qti1f_Loyalty%20App",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": false,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"nodeModules": true,
+		"uploadWithSourceMap": true,
+		"uglifyFileName": true,
+		"remoteDebugLogEnable": true,
+		"prefetch": false
+	},
+	"TCSASLibVersion": "2.2.2",
+	"compileType": "miniprogram",
+	"createTime": 1745461914104,
+	"accessTime": 1745461914104,
+	"packOptions": {
+		"ignore": []
+	},
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"TCSASappid": "mp5vhbchef0qti1f",
+	"projectname": "Loyalty%20App",
+	"scripts": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": []
+		}
+	}
+}

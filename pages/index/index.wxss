@@ -1,0 +1,473 @@
+.container {
+  width: 100vw;
+  height: 100%;
+  background-size: 100% 50%, 100% 100%;
+  background-position: top center, bottom center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.swiper {
+  margin-top: 1vh;
+  width: 100%;
+  height: 30vh;
+  position: absolute;
+  top: 0vh;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.page-text {
+  font-size: 12px;
+  color: white;
+  font-weight: bold;
+}
+
+.title {
+  margin-top:16px;
+  font-size: 12px;
+  font-weight: bold;
+  color:#181C21;
+  padding: 0px 16px;
+}
+
+.title-description {
+  font-size: 12px;
+  font-weight: 200;
+  padding: 0px 16px;
+  color:#757F90;
+}
+
+.milestone-bar {
+  height: 4px;
+  background-color: #DAE0E9;
+  position: absolute;
+}
+
+.milestone-container {
+  width: 100%;
+  height: 8rpx;
+  background-color: '#DAE0E9';
+  margin-bottom: 10px;
+  position: relative;
+  overflow: visible;
+  margin-top:20px;
+}
+
+.milestone-dot.left {
+  left: 0;
+}
+
+.milestone-dot.right {
+  right: 0;
+}
+
+.milestone-dot.center {
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.milestone-dot {
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.page-image {
+}
+
+.slider {
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+.labels {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30rpx;
+}
+
+.label {
+  color: white;
+}
+
+.description-tier {
+  font-size:10px;
+  color:white;
+  font-weight:200;
+  display: flex;
+  text-align: center;
+}
+
+/* Section container */
+.section-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 20vh;
+}
+
+/* Card */
+.card {
+  display: inline-block;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.voucher-scroll-wrapper {
+  width: 100%;
+  overflow: hidden;
+  margin-top:10px;
+  margin-bottom:16px;
+  margin-left: 16px;
+}
+
+.voucher-scroll {
+  white-space: nowrap;
+  display: flex;
+}
+
+.voucher-card {
+  display: inline-block;
+  position: relative;
+  width: 132px;
+  height: 92px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #eee;
+  margin-right:10px;
+}
+
+.voucher-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.voucher-side {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.left-circle {
+  left: -10px;
+}
+
+.right-circle {
+  right: -10px;
+}
+
+.voucher-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding:5px;
+  align-items:center;
+
+}
+.voucher-desc {
+  color: white;
+  font-size: 10px;
+  word-wrap: break-word;
+  white-space: normal;
+  text-align:center;
+  width: 80%;
+}
+
+.voucher-icon {
+  width: 35px;
+  height: 35px;
+}
+
+
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 998;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.voucher-modal {
+  background: #fff;
+  width: 100%;
+  border-radius: 20rpx 20rpx 0 0;
+  animation: slide-up 0.3s ease;
+  background-color: #eff1f4;
+}
+
+.modal-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 30px 10px;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-voucher-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: white;
+  align-items: center;
+}
+
+.modal-voucher-icon {
+  width: 40px;
+  height: 40px;
+}
+.modal-voucher-description {
+  font-size: 10px;
+}
+
+.detail-modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.detail-voucher-modal {
+  background: #fff;
+  width: 100%;
+  border-radius: 20rpx 20rpx 0 0;
+  animation: slide-up 0.3s ease;
+  background-color: #eff1f4;
+}
+
+.detail-modal-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 30px 10px;
+}
+
+.button {
+  background-color: #e53935; /* Merah terang */
+  color: white;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 12px;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+}
+
+.card-overlap {
+  display: inline-block;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.image-overlap {
+  width: 150px;
+  height: 230px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+}
+
+.icon-overlap {
+  width: 150px;
+  height: 230px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+}
+
+.reward-card {
+  display: inline-block;
+  position: relative;
+  width: 115px;
+  height: 149px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #eee;
+  margin-right:10px;
+}
+
+.reward-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reward-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding:10px;
+  align-items:start;
+
+}
+.reward-desc {
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  width: 60%;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.bounce-loop {
+  animation: bounceY 2s ease-in-out infinite;
+}
+
+@keyframes bounceY {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.info-card {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.info-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.info-content {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content:center;
+
+}
+
+.info-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.info-desc {
+  font-size: 14px;
+}
+
+.info-button {
+  border: 1px solid #fff;
+  border-radius: 1000px;
+  padding: 9px 12px;
+  font-size: 12px;
+  display: inline-block;
+  color: #fff;
+}
+
+.poin-title {
+  font-size: 12px;
+  font-weight: bold;
+  color:#181C21;
+}
+
+.poin-desc {
+  font-size: 10px;
+  font-weight: 200;
+  color:#757F90;
+  font-weight: 400;
+}
+
+.shopping-button {
+  border: 1px solid #fff;
+  border-radius: 1000px;
+  padding: 9px 12px;
+  font-size: 12px;
+  display: inline-block;
+  color: #fff;
+  background: #ED0226;
+}
+
+.help-center-button {
+  border: 1px solid #ED0226;
+  border-radius: 1000px;
+  padding: 9px 12px;
+  font-size: 12px;
+  display: inline-block;
+  color: #ED0226;
+  background: #fff;
+}

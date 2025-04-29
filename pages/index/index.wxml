@@ -1,0 +1,158 @@
+<view class="container"  
+  style="background-image: url({{backgroundImage}}), linear-gradient(to bottom, #eff1f4 50%, #eff1f4 50%);"
+>
+  <swiper 
+    class="swiper"
+    current="{{sliderValue}}"
+    indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}"
+    interval="{{interval}}"
+    duration="{{duration}}"
+    bindchange="onSwiperChange"
+    previous-margin="{{itemWidth}}"
+    next-margin="{{itemWidth}}"
+    bindtouchstart="onSwipeStart"
+    bindtouchend="onSwipeEnd"
+    bindtransition="onSwipeTransition"
+    bindtouchmove="onTouchMove"
+  >
+    <block wx:for="{{tier}}" wx:key="index">
+      <swiper-item>
+        <view class="page {{index === sliderValue ? 'active' : 'inactive'}}" wx:key="index">
+          <image 
+            class="page-image" 
+            src="{{item.icon}}" 
+            mode="aspectFit"
+            style="transform: scale({{scales[index]}}); transition: transform 0.1s linear;margin-top:{{marginTop}}" 
+          />
+            <view style="display:flex;flex-direction:column;align-items:center;transform: scale({{index === sliderValue ? 1 : 0.9}}); transition: transform 0.3s ease;opacity: {{index === sliderValue ? 1 : 0.8}};">
+              <text wx:if="{{item.name === 'Platinum' && (index === sliderValue && !isSwiping)}}" class="description-tier">Tier Kamu</text>
+              <text wx:else class="description-tier" style="transition: opacity 0.2s ease, visibility 0.3s ease;visibility:hidden">d</text>
+              <text class="page-text">{{item.name}}</text>
+              <text wx:if="{{(index === sliderValue && !isSwiping)}}" class="description-tier">{{item.description}}</text>
+              <text wx:else class="description-tier" style="visibility:hidden">d</text>
+            </view>
+            <view class="milestone-container">
+              <view class="milestone-bar" style="width: {{milestones[index].width}}; {{milestones[index].barPosition === 'right' ? 'right:0' : milestoneBarPosition === 'left' ? 'left:0' : ''}}"></view>
+              <image style="width: 12px; height: 12px;" class="milestone-dot {{milestonePosition === 'center' ? 'center' : 'left'}}" src="/assets/dot.png" />
+            </view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="section-container">
+    <view wx:if="{{voucherList.length > 0}}" class="card">
+      <view style="display:flex;flex-direction:column;gap:2px">
+        <text class="title">Hadiah Spesial {{tierType}}</text>
+        <text class="title-description">Bisa kamu dapatkan di tier ini</text>
+        <view class="voucher-scroll-wrapper">
+            <scroll-view class="voucher-scroll" scroll-x>
+              <block wx:for="{{voucherList}}" wx:key="id">
+                <view class="voucher-card" bindtap="onVoucherClick">
+                  <image class="voucher-bg" src="{{backgroundImage}}" mode="aspectFill" />
+                  <view class="voucher-side left-circle"></view>
+                  <view class="voucher-side right-circle"></view>
+                  <view class="voucher-overlay">
+                    <image class="voucher-icon" src="{{item.icon}}" />
+                    <text class="voucher-desc">{{item.description}}</text>
+                  </view>
+                </view>
+              </block>
+            </scroll-view>
+          </view>
+      </view>
+    </view>
+    <view class="card-overlap" style="position:relative;">
+      <image class="image-overlap"  src="{{backgroundRewardTransparent}}"/>
+      <view style="z-index:1; display:flex; flex-direction:column; gap:2px;position:relative;">
+        <text class="title">Keuntungan {{tierType}} Membership</text>
+        <text class="title-description">Spesial untukmu pelanggan {{tierType}}</text>
+        <view class="voucher-scroll-wrapper">
+            <scroll-view class="voucher-scroll" scroll-x>
+              <block wx:for="{{rewardList}}" wx:key="id">
+                <view class="reward-card">
+                  <image class="reward-bg" src="{{item.bgImage}}" mode="aspectFill" />
+                  <!--<view class="reward-overlay">
+                    <text class="reward-desc">{{item.description}}</text>
+                  </view>-->
+                </view>
+              </block>
+            </scroll-view>
+          </view>
+      </view>
+    </view>
+    <view wx:if="{{tierType !== 'Platinum'}}" class="info-card">
+      <view class="info-bg" style="background: linear-gradient(to bottom right, {{bgInfoColor1}}, {{bgInfoColor2}});"></view>
+      <view class="info-content">
+        <view style="display:flex;flex-direction:column;width:80%;">
+          <text class="info-title">Yay Selamat!</text>
+          <text class="info-desc">Kamu sudah berhasil melewati tier {{tierType}}</text>
+          <view style="margin-top:10px;">
+            <text class="info-button">Selengkapnya</text>
+          </view>
+        </view>
+        <view style="width:20%;display:flex;justify-content:center;align-items:center;">
+          <image style="width:64px;height:64px;" src="/assets/thumb.png"/>
+        </view>
+      </view>
+    </view>
+    <view class="info-card" style="color:#000;background:#fff;">
+      <view class="info-bg" ></view>
+      <view class="info-content">
+        <view style="display:flex;flex-direction:column;width:80%;">
+          <text class="poin-title" >Siap Nambah Keuntungan?</text>
+          <text class="poin-desc">Yuk, belanja biar cepat naik tier & dapat keuntungan maksimal!</text>
+          <view style="margin-top:10px;">
+            <text class="shopping-button">Tambah Poin</text>
+          </view>
+        </view>
+        <view style="display:flex;justify-content:center;align-items:center;">
+          <image style="width:80px;height:80px;" src="/assets/shopping.png"/>
+        </view>
+      </view>
+    </view>
+    <view class="info-card" style="color:#000;background:#fff;">
+      <view class="info-bg" ></view>
+      <view class="info-content">
+        <view style="display:flex;flex-direction:column;width:80%;">
+          <text class="poin-title" >Butuh Bantuan?</text>
+          <text class="poin-desc">Dapatkan info detail atau bantuan seputar Telkomsel Prestige di sini</text>
+          <view style="display:flex;flex-direction:row;gap:4px;">
+            <view style="margin-top:10px;">
+              <text class="help-center-button">Info Prestige</text>
+            </view>
+            <view style="margin-top:10px;">
+              <text class="help-center-button">Tanya Veronika</text>
+            </view>
+          </view>
+        </view>
+        <view style="display:flex;justify-content:center;align-items:center;">
+          <image style="width:80px;height:80px;" src="/assets/help_center.png"/>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{showVoucherModal}}" class="modal-mask" catchtap="closeModal">
+    <view class="voucher-modal">
+      <view class="modal-wrapper" catchtap="onDetailVoucherClick">
+        <text class="title">Voucher {{tierType}}</text>
+        <text class="title-description">Bisa diklaim setiap bulan</text>
+        <block wx:for="{{voucherList}}" wx:key="id">
+          <view class="modal-voucher-container">
+            <image class="modal-voucher-icon" src="{{item.icon}}" />
+            <text class="modal-voucher-description">{{item.description}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{showDetailVoucherModal}}" class="detail-modal-mask" catchtap="closeDetailModal">
+    <view class="detail-voucher-modal" catchtap="preventTouch">
+      <view class="detail-modal-wrapper">
+        <text class="title">Kamu belum mencapai tier ini</text>
+        <text class="title-description">Lama penggunaan harus > 6 bulan untuk menjadi pelanggan Telkomsel {{tierType}}</text>
+        <view type='button' class="button">Belanja</view>
+      </view>
+    </view>
+  </view>
+</view>
