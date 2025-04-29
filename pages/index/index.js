@@ -93,7 +93,6 @@ Page({
     bgInfoColor1:'#51000A',
     bgInfoColor2:'#FF3E3E',
   },
-  
   onLoad(){
     this.getVoucherList(0)
     this.getRewardList(0)
