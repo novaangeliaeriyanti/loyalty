@@ -107,8 +107,8 @@ Page({
     const windowWidth = res.windowWidth;
   
     const itemWidth = `${Math.ceil(0.5 * windowWidth / 2)}px`;
-    const marginTop = `${Math.ceil(0.5 * windowWidth / 4)}rpx`;
-    
+    const marginTop = `${Math.ceil(windowWidth / 4)}rpx`;
+
     this.setData({
       itemWidth:itemWidth,
       marginTop: marginTop,
@@ -199,14 +199,14 @@ Page({
   },
 
   updateNavigationBarColor(color) {
-    wx.setNavigationBarColor({
-      frontColor: '#ffffff',
-      backgroundColor: color,
-      animation: {
-        duration: 300,
-        timingFunc: 'easeIn'
-      }
-    });
+    // wx.setNavigationBarColor({
+    //   frontColor: '#ffffff',
+    //   backgroundColor: rgba(0,0,0,0),
+    //   animation: {
+    //     duration: 300,
+    //     timingFunc: 'easeIn'
+    //   }
+    // });
   },
 
   getTierType(value) {
@@ -331,7 +331,7 @@ Page({
       {
         id: 2,
         tierType:'Platinum',
-        color1: '#000',
+        color1: '#071727',
         color2:'#DAE0E9'
       },
       {

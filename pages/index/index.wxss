@@ -88,6 +88,8 @@
 }
 
 .page-image {
+  width:45px;
+  height:45px;
 }
 
 .slider {
@@ -319,6 +321,15 @@
   background-color: #fff;
 }
 
+.reward-overlap {
+  display: inline-block;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 18px 12px;
+  gap: 7px;
+}
+
 .image-overlap {
   width: 150px;
   height: 230px;
@@ -326,6 +337,16 @@
   top: 0;
   right: 0;
   z-index: 0;
+}
+
+.image-left-overlap {
+  position: absolute;
+  left: 0;
+  top:0;
+  z-index: 0;
+  bottom: 0;
+  width: 120px;
+  height: 82px;
 }
 
 .icon-overlap {
@@ -437,6 +458,15 @@
   font-size: 12px;
   display: inline-block;
   color: #fff;
+}
+
+.reward-button {
+  border: 1px solid #fff;
+  border-radius: 1000px;
+  padding: 9px 12px;
+  font-size: 12px;
+  display: inline-block;
+  background-color:#fff;
 }
 
 .poin-title {
